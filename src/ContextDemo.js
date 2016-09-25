@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styled, { define, inherit } from 'styled-components';
+import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
@@ -20,15 +20,15 @@ const Half = styled.div`
 
 const SecondHalf = styled(Half)`
   background: #ccc;
-  ${define({
+  ${props => props.updateTheme({
     fg: 'white',
     bg: '#444'
   })}
 `
 
 const Button = styled.div`
-  color: ${inherit('fg', 'black')}
-  background: ${inherit('bg', 'none')}
+  color: ${props => props.theme.fg || 'black'}
+  background: ${props => props.theme.bg || 'none'}
   cursor: pointer;
   padding: 0.5em 1em;
   border: 1px solid;
