@@ -25,9 +25,18 @@ const Intro = styled.p`
   font-size: large;
 `
 
+import SvgTest from './svgTest'
+import OrderTest from './orderTest'
+import OrderTest2 from './orderTest2'
+
 class App extends Component {
   render() {
-    return (
+    return <div>
+        <SvgTest/>
+        <OrderTest/>
+        <OrderTest2/>
+      </div>
+      || (
       <Outer>
         <Header>
           <Logo src={logo} alt="logo"/>
