@@ -1,9 +1,15 @@
-import React, {Component} from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react';
+import styled, { global } from 'styled-components';
 
 import logo from './logo.svg';
 import './App.css';
 import ContextDemo from './ContextDemo.js'
+
+global`
+  html {
+    background: papayawhip;
+  }
+`
 
 const Outer = styled.div`
   text-align: center;
@@ -27,27 +33,25 @@ const Intro = styled.p`
 
 import SvgTest from './svgTest'
 import OrderTest from './orderTest'
-import OrderTest2 from './orderTest2'
 
 class App extends Component {
   render() {
     return <div>
         <SvgTest/>
         <OrderTest/>
-        <OrderTest2/>
       </div>
       || (
-      <Outer>
-        <Header>
-          <Logo src={logo} alt="logo"/>
-          <h2>Styled Components</h2>
-        </Header>
-        <Intro>
-          This is actually working!
-        </Intro>
-        <ContextDemo/>
-      </Outer>
-    );
+        <Outer>
+          <Header>
+            <Logo src={logo} alt="logo"/>
+            <h2>Styled Components</h2>
+          </Header>
+          <Intro>
+            This is actually working!
+          </Intro>
+          <ContextDemo/>
+        </Outer>
+      );
   }
 }
 

@@ -1,34 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Vertical from './svgTest2'
-
-const width = 50
-const height = 100
 const SVG = styled.svg`
-  margin: 2rem;
-  line {
-    stroke-width: 10px;
-    fill: none;
-    stroke: black;
-    ${ console.log("PARSING SVG") }
-    ${ () => console.log("EXEC SVG") }
-  }
-`
-
-const Horizontal = styled.g`
-  line {
-    shape-rendering:crispEdges;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  stroke: black;
+  g {
     stroke: red;
   }
-`
-const Horiz = styled(Horizontal)`
   line {
-    stroke: blue;
+    stroke-width: 4px;
   }
 `
 
-const Vert = styled(Vertical)`
+const Vertical = styled.g`
+  /* export two class selectors to override the selector defined in SVG above */
+  && {
+    stroke: blue;
+  }
+  /* this should work because Vertical's CSS gets injected after SVG, but it don't */
   line {
     stroke-width: 1px;
   }
@@ -36,9 +26,9 @@ const Vert = styled(Vertical)`
 
 export default () => (
   <SVG>
-    <Horiz>
-      <line x1={0} y1={0} x2={width} y2={0}/>
-    </Horiz>
-    <Vert/>
+    <line x1={10} y1={10} x2={90} y2={10}/>
+    <Vertical>
+      <line x1={10} y1={10} x2={90} y2={90}/>
+    </Vertical>
   </SVG>
 )
