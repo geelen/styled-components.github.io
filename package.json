@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.5.1"
+    "react-scripts": "0.5.1",
+    "styled-components": "^0.1.9"
   },
   "dependencies": {
     "react": "^15.3.2",
